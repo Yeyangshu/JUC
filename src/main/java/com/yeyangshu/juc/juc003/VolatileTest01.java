@@ -13,6 +13,7 @@ package com.yeyangshu.juc.juc003;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * 不加volatile，死循环
  * @author yeyangshu
  * @version 1.0
  * @date 2020/6/8 23:20
@@ -39,6 +40,3 @@ public class VolatileTest01 {
         test01.running = false;
     }
 }
-/**
- * 不加volatile，死循环
- */
