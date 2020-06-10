@@ -25,7 +25,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class AtomicTest01 {
     AtomicInteger count = new AtomicInteger(0);
 
-    void m() {
+    void m() { // 原来方法上需要加synchronized
         for (int i = 0; i < 10000; i++) {
             count.incrementAndGet(); //=count++
         }
@@ -37,7 +37,7 @@ public class AtomicTest01 {
         List<Thread> threads = new ArrayList<>();
 
         for (int i = 0; i < 10; i++) {
-            threads.add(new Thread(atomicTest01::m, "thread" + i));
+            threads.add(new Thread(atomicTest01::m, "thread-" + i));
         }
 
         threads.forEach((o) -> o.start());
