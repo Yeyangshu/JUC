@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-##java.util.concurrent.atomic.AtomicXXX(CAS)、JUC同步锁
-1. CAS（compare and swap）无锁优化，乐观锁
-=======
 ## java.util.concurrent.atomic.AtomicXXX(CAS)、JUC同步锁
 CAS（compare and swap）无锁优化，乐观锁
->>>>>>> 500205f120419b269c47928a5c43ce8a53a8e806
 - AtomicTest01：AtomicInteger使用，对比synchronized，VolatileTest05
   - CAS
     - ABA问题
