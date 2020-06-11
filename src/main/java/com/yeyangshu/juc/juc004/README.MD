@@ -1,5 +1,5 @@
 ##java.util.concurrent.atomic.AtomicXXX(CAS)、JUC同步锁
-CAS（compare and swap）无锁优化，乐观锁
+1. CAS（compare and swap）无锁优化，乐观锁
 - AtomicTest01：AtomicInteger使用，对比synchronized，VolatileTest05
   - CAS
     - ABA问题
@@ -37,9 +37,13 @@ CAS（compare and swap）无锁优化，乐观锁
   ```
     太久
   ```
-
 - AtomicXXX.png：Atomic包的图片
-
+2. 基于CAS的新类型锁
+- CasLock01_ReentrantLock01：复习synchronized，可重入锁
+- CasLock01_ReentrantLock02：ReentrantLock替代 synchronized，lock.lock()/lock.unlock()
+- CasLock01_ReentrantLock03：tryLock尝试锁定
+- CasLock01_ReentrantLock04：lock.lockInterruptibly()可以被打断
+- CasLock01_ReentrantLock05：公平锁
 
 CAS
 AtomicInteger.incrementAndGet()调用getAndAddInt()方法
@@ -59,7 +63,7 @@ public final int getAndAddInt(Object var1, long var2, int var4) {
     return var5;
 }
 ```
-CAS
+CAS，这个方法的实现需要涉及底层的unsafe类
 ```
 compareAndSwap(value, excepted, newValue) {
   if (value == excepted) { // 判断是不是期望值，如果是新值赋给value
@@ -72,4 +76,5 @@ compareAndSwap(value, excepted, newValue) {
 说明有另一个线程改了这个值，那么compareAndSwap会再重试一次，此时value=2，excepted应该也是2，newValue=3，在修改的过程中
 expected还是2，那就没有其它线程去修改这个值，把value改成3。
 ```
+unsafe类：java不能直接访问操作系统底层，而是通过本地方法来访问。Unsafe类提供了硬件级别的原子操作
 
