@@ -44,6 +44,12 @@ CAS（compare and swap）无锁优化，乐观锁
 - CasLock01_ReentrantLock03：tryLock尝试锁定
 - CasLock01_ReentrantLock04：lock.lockInterruptibly()可以被打断
 - CasLock01_ReentrantLock05：公平锁
+- CasLock02_CountDownLatch：门栓
+- CasLock03_CyclicBarrier：循环栅栏
+- CasLock04_Phaser：阶段器
+- CasLock05_ReadWriteLock：读写锁
+- CasLock06_Semaphore：信号灯，限流作用
+- CasLock07_Exchanger：交换器
 
 CAS
 AtomicInteger.incrementAndGet()调用getAndAddInt()方法
