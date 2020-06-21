@@ -50,6 +50,7 @@ CAS（compare and swap）无锁优化，乐观锁
 - CasLock05_ReadWriteLock：读写锁
 - CasLock06_Semaphore：信号灯，限流作用
 - CasLock07_Exchanger：交换器
+- CasLock08_LockSupport：线程阻塞工具类
 
 CAS
 AtomicInteger.incrementAndGet()调用getAndAddInt()方法

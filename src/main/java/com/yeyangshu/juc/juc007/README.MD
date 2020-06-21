@@ -1,1 +1,9 @@
-并发容器
+ThreadLocal
+
+ThreadLocal01：测试
+ThreadLocal02：源码
+Reference01_Finalize：重写finalize，便于观察
+Reference02_NormalReference：普通引用，强引用
+Reference03_SoftReference：软引用，做缓存用
+Reference04_WeakReference：引用，遇到gc就会回收，一般用在容器
+Reference05_PhantomReference：虚引用，jvm使用
