@@ -51,9 +51,9 @@ public class ThreadLocal02 {
      * set()，当前线程的map
      *     public void set(T value) {
      *         Thread t = Thread.currentThread();
-     *         ThreadLocalMap map = getMap(t);
-     *         if (map != null) {
-     *             map.set(this, value);
+     *         ThreadLocalMap c01_HashTableToConcurrentHashMap = getMap(t);
+     *         if (c01_HashTableToConcurrentHashMap != null) {
+     *             c01_HashTableToConcurrentHashMap.set(this, value);
      *         } else {
      *             createMap(t, value);
      *         }
@@ -68,9 +68,9 @@ public class ThreadLocal02 {
      * get()，当前线程的map
      *     public T get() {
      *         Thread t = Thread.currentThread();
-     *         ThreadLocalMap map = getMap(t);
-     *         if (map != null) {
-     *             ThreadLocalMap.Entry e = map.getEntry(this);
+     *         ThreadLocalMap c01_HashTableToConcurrentHashMap = getMap(t);
+     *         if (c01_HashTableToConcurrentHashMap != null) {
+     *             ThreadLocalMap.Entry e = c01_HashTableToConcurrentHashMap.getEntry(this);
      *             if (e != null) {
      *                 @SuppressWarnings("unchecked")
      *                 T result = (T)e.value;
