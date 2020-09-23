@@ -3,7 +3,8 @@ package com.yeyangshu.juc.juc001;
 import java.util.Date;
 
 /**
- * join方法，thread2等待thread1执行完毕才去执行
+ * join 方法，thread2 等待 thread1 执行完毕才去执行
+ * 等待该线程终止。
  */
 public class MethodJoin {
     public static void main(String[] args) {

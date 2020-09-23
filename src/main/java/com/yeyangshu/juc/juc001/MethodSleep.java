@@ -5,6 +5,7 @@ import java.util.Date;
 
 /**
  * sleep方法，线程暂停一段时间
+ * 在指定的毫秒数内让当前正在执行的线程休眠（暂停执行），此操作受到系统计时器和调度程序精度和准确性的影响。
  */
 public class MethodSleep {
     public static void main(String[] args) {
