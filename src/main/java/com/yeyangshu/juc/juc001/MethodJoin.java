@@ -39,4 +39,27 @@ public class MethodJoin {
         thread1.start();
         thread2.start();
     }
+
+    /**
+     * firstThread 0
+     * firstThread 1
+     * firstThread 2
+     * firstThread 3
+     * firstThread 4
+     * firstThread 5
+     * firstThread 6
+     * firstThread 7
+     * firstThread 8
+     * firstThread 9
+     * secondThread 0
+     * secondThread 1
+     * secondThread 2
+     * secondThread 3
+     * secondThread 4
+     * secondThread 5
+     * secondThread 6
+     * secondThread 7
+     * secondThread 8
+     * secondThread 9
+     */
 }

@@ -2,13 +2,16 @@ package com.yeyangshu.juc.juc001;
 
 /**
  * 查看线程运行状态
+ *
  * @author yeyangshu
  * @version 1.0
  * @date 2020/9/24 0:46
  */
 public class ThreadState implements Runnable {
+
     /**
      * 使当前线程等待 0.5 秒或其它线程调用 notify() 或 notifyAll() 方法
+     *
      * @throws InterruptedException
      */
     public synchronized void waitForSeconds() throws InterruptedException {
@@ -17,6 +20,7 @@ public class ThreadState implements Runnable {
 
     /**
      * 使当前线程永久等待，直到其它线程调用 notify() 或 notifyAll() 方法
+     *
      * @throws InterruptedException
      */
     public synchronized void waitForYears() throws InterruptedException {
@@ -25,6 +29,7 @@ public class ThreadState implements Runnable {
 
     /**
      * 唤醒由调用 wait() 方法进入等待状态的线程
+     *
      * @throws InterruptedException
      */
     public synchronized void notifyNow() throws InterruptedException {
@@ -68,7 +73,7 @@ public class ThreadState implements Runnable {
         // 当前线程休眠 1 秒，使新线程结束，输出新线程状态
         System.out.println("等待线程：" + thread.getState());
 
-        /*
+        /**
          * 新建线程：NEW
          * 启动线程：RUNNABLE
          * 计时等待：TIMED_WAITING

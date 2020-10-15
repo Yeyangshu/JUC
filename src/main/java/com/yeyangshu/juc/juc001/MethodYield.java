@@ -26,4 +26,27 @@ public class MethodYield {
             }
         }).start();
     }
+
+    /**
+     * firstThread 0
+     * secondThread 0
+     * firstThread 1
+     * firstThread 2
+     * secondThread 1
+     * secondThread 2
+     * firstThread 3
+     * firstThread 4
+     * secondThread 3
+     * secondThread 4
+     * firstThread 5
+     * firstThread 6
+     * secondThread 5
+     * secondThread 6
+     * firstThread 7
+     * firstThread 8
+     * secondThread 7
+     * secondThread 8
+     * firstThread 9
+     * secondThread 9
+     */
 }
