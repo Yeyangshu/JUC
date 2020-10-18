@@ -1,19 +1,12 @@
-/**
- * Copyright (C), 2018-2020
- * FileName: VolatileTest01
- * Author:   11077
- * Date:     2020/6/8 23:20
- * Description:
- * History:
- * <author>          <time>          <version>          <desc>
- * 作者姓名           修改时间           版本号              描述
- */
 package com.yeyangshu.juc.juc003;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 /**
+ * volatile关键字
+ *
  * synchronize能保证线程的可见性，也能保证原子性
  * 加synchronize，count能达到100000
  * @author yeyangshu
@@ -21,12 +14,19 @@ import java.util.List;
  * @date 2020/6/8 23:20
  */
 public class VolatileTest05 {
-    int count = 0;
+
+    /**
+     * 启动线程数
+     */
+    private static final int COUNT_THREAD = 10;
+
+    /**
+     * 计算初始值
+     */
+    volatile int count = 0;
 
     synchronized void m() {
-        for (int i = 0; i < 10000; i++) {
-            count++;
-        }
+        IntStream.range(0, 10000).forEach(i -> count++);
     }
 
     public static void main(String[] args) {
@@ -49,4 +49,8 @@ public class VolatileTest05 {
         });
         System.out.println(test04.count);
     }
+
+    /**
+     * 100000
+     */
 }
