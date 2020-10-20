@@ -1,25 +1,21 @@
-/**
- * Copyright (C), 2018-2020
- * FileName: CasLock01_ReentrantLock04
- * Author:   11077
- * Date:     2020/6/11 23:22
- * Description:
- * History:
- * <author>          <time>          <version>          <desc>
- * 作者姓名           修改时间           版本号              描述
- */
 package com.yeyangshu.juc.juc004;
 
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
+ * ReentrantLock
+ *
  * ReentrantLock设置为公平锁
+ *
  * @author yeyangshu
  * @version 1.0
  * @date 2020/6/11 23:40
  */
 public class CasLock01_ReentrantLock05 extends Thread {
-    /** 参数true，指定lock为公平锁 */
+
+    /**
+     * 参数true，指定lock为公平锁
+     */
     private static ReentrantLock lock = new ReentrantLock(true);
 
     @Override
@@ -43,6 +39,7 @@ public class CasLock01_ReentrantLock05 extends Thread {
     }
 
     /**
+     * 结果：
      * Thread-1获得锁
      * Thread-2获得锁
      * Thread-1获得锁
@@ -105,4 +102,3 @@ public class CasLock01_ReentrantLock05 extends Thread {
      */
 
 }
-

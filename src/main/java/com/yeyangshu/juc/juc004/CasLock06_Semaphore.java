@@ -1,29 +1,26 @@
-/**
- * Copyright (C), 2018-2020
- * FileName: CasLock06_Semaphore
- * Author:   11077
- * Date:     2020/6/13 10:52
- * Description:
- * History:
- * <author>          <time>          <version>          <desc>
- * 作者姓名           修改时间           版本号              描述
- */
 package com.yeyangshu.juc.juc004;
 
 import java.util.concurrent.Semaphore;
 
 /**
  * 信号灯
+ *
  * 作用是控制线程的并发数量
+ *
  * @author yeyangshu
  * @version 1.0
  * @date 2020/6/13 10:52
  */
 public class CasLock06_Semaphore {
     public static void main(String[] args) {
-        // 初始化了2个通路
+        /**
+         * 初始化了2个通路，并且是公平的
+         */
         Semaphore semaphore = new Semaphore(2, true);
 
+        /**
+         * T1线程占用后释放
+         */
         new Thread(() -> {
             try {
                 // acquire()，线程进入将会占用的通路为1
@@ -40,6 +37,9 @@ public class CasLock06_Semaphore {
             }
         }).start();
 
+        /**
+         * T2线程占用后不释放
+         */
         new Thread(() -> {
             try {
                 // acquire()，线程进入将会占用的通路为1
@@ -52,6 +52,9 @@ public class CasLock06_Semaphore {
             }
         }).start();
 
+        /**
+         * T2线程占用后不释放
+         */
         new Thread(() -> {
             try {
                 // acquire()，线程进入将会占用的通路为1
