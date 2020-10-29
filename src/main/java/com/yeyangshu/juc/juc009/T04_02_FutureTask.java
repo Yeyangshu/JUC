@@ -5,13 +5,21 @@ import java.util.concurrent.FutureTask;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Future 表示异步计算的结果。它提供了检查计算是否完成的方法，以等待计算的完成，并获取计算的结果。
- * 计算完成后只能使用 get 方法来获取结果，如有必要，计算完成前可以阻塞此方法。取消则由 cancel 方法来执行。
+ * FutureTask
+ * 既可以作为Runnable被线程执行，又可以作为Future得到Callable的返回值
+ *
  * @author yeyangshu
  * @version 1.0
- * @date 2020/6/30 23:35
+ * @date 2020/7/4 9:26
  */
-public class T06_Future {
+public class T04_02_FutureTask {
+
+    /**
+     * 其中一个构造方法
+     * FutureTask(Runnable runnable, V result)
+     *   创建一个 FutureTask，一旦运行就执行给定的 Runnable，并安排成功完成时 get 返回给定的结果 。
+     */
+
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         FutureTask<Integer> task = new FutureTask<>(() -> {
             TimeUnit.SECONDS.sleep(1);

@@ -5,14 +5,18 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * CachedThreadPool
+ *
  * 创建一个可缓存的线程池
  * 如果线程池的规模超过了处理需求时，将回收空闲的线程，
  * 而当需求增加时，则可以添加新的线程，线程池的规模不存在任何限制。
+ *
  * @author yeyangshu
  * @version 1.0
  * @date 2020/7/4 15:57
  */
 public class T08_CachedThreadPool {
+
     public static void main(String[] args) throws InterruptedException {
         ExecutorService service = Executors.newCachedThreadPool();
         System.out.println(service);
@@ -32,9 +36,11 @@ public class T08_CachedThreadPool {
     }
 
     /**
-     * java.util.concurrent.ThreadPoolExecutor@5b464ce8[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
-     * java.util.concurrent.ThreadPoolExecutor@5b464ce8[Running, pool size = 2, active threads = 2, queued tasks = 0, completed tasks = 0]
+     * java.util.concurrent.ThreadPoolExecutor@4b67cf4d[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0]
+     * java.util.concurrent.ThreadPoolExecutor@4b67cf4d[Running, pool size = 2, active threads = 2, queued tasks = 0, completed tasks = 0]
      * pool-1-thread-2
      * pool-1-thread-1
+     * 60s后打印
+     * java.util.concurrent.ThreadPoolExecutor@4b67cf4d[Running, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 2]
      */
 }
