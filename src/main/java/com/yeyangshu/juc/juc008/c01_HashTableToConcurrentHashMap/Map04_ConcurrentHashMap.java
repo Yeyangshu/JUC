@@ -1,13 +1,3 @@
-/**
- * Copyright (C), 2018-2020
- * FileName: Map04_ConcurrentHashMap
- * Author:   11077
- * Date:     2020/6/25 21:45
- * Description:
- * History:
- * <author>          <time>          <version>          <desc>
- * 作者姓名           修改时间           版本号              描述
- */
 package com.yeyangshu.juc.juc008.c01_HashTableToConcurrentHashMap;
 
 import java.util.Map;
@@ -15,6 +5,8 @@ import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
+ * ConcurrentHashMap
+ *
  * @author yeyangshu
  * @version 1.0
  * @date 2020/6/25 21:45
@@ -104,4 +96,11 @@ public class Map04_ConcurrentHashMap {
         end = System.currentTimeMillis();
         System.out.println(end - start);
     }
+
+    /**
+     * 214
+     * 1000000
+     * 755
+     * 插入效率不是最高，读效率最高
+     */
 }

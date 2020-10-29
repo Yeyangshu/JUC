@@ -1,16 +1,5 @@
-/**
- * Copyright (C), 2018-2020
- * FileName: TicketSeller01_ArrayList
- * Author:   11077
- * Date:     2020/6/25 21:56
- * Description:
- * History:
- * <author>          <time>          <version>          <desc>
- * 作者姓名           修改时间           版本号              描述
- */
 package com.yeyangshu.juc.juc008.c02_VectorToQueue;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 import java.util.concurrent.TimeUnit;
@@ -53,13 +42,13 @@ public class TicketSeller02_Vector {
 
     /**
      * Exception in thread "Thread-7" Exception in thread "Thread-0" Exception in thread "Thread-6" Exception in thread "Thread-8" Exception in thread "Thread-4" Exception in thread "Thread-2" Exception in thread "Thread-3" Exception in thread "Thread-1" Exception in thread "Thread-9" java.lang.ArrayIndexOutOfBoundsException: Array index out of range: 0
-     * 	at java.base/java.util.Vector.remove(Vector.java:874)
-     * 	at com.yeyangshu.juc.juc008.c02_VectorToQueue.TicketSeller02_Vector.lambda$main$0(TicketSeller02_Vector.java:48)
-     * 	at java.base/java.lang.Thread.run(Thread.java:834)
+     *     at java.base/java.util.Vector.remove(Vector.java:874)
+     *     at com.yeyangshu.juc.juc008.c02_VectorToQueue.TicketSeller02_Vector.lambda$main$0(TicketSeller02_Vector.java:48)
+     *     at java.base/java.lang.Thread.run(Thread.java:834)
      * java.lang.ArrayIndexOutOfBoundsException: Array index out of range: 0
-     * 	at java.base/java.util.Vector.remove(Vector.java:874)
-     * 	at com.yeyangshu.juc.juc008.c02_VectorToQueue.TicketSeller02_Vector.lambda$main$0(TicketSeller02_Vector.java:48)
-     * 	at java.base/java.lang.Thread.run(Thread.java:834)
+     *     at java.base/java.util.Vector.remove(Vector.java:874)
+     *     at com.yeyangshu.juc.juc008.c02_VectorToQueue.TicketSeller02_Vector.lambda$main$0(TicketSeller02_Vector.java:48)
+     *     at java.base/java.lang.Thread.run(Thread.java:834)
      * java.lang.ArrayIndexOutOfBoundsException: Array index out of range: 0
      * ..............................
      *

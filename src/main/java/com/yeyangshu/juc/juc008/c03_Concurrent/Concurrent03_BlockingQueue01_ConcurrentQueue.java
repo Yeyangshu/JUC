@@ -4,12 +4,13 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
- * Queue提供的接口演示
+ * ConcurrentLinkedQueue：并发队列(基于链表)
  * @author yeyangshu
  * @version 1.0
  * @date 2020/6/27 10:03
  */
 public class Concurrent03_BlockingQueue01_ConcurrentQueue {
+
     public static void main(String[] args) {
         Queue<String> strs = new ConcurrentLinkedQueue<>();
 
@@ -29,4 +30,16 @@ public class Concurrent03_BlockingQueue01_ConcurrentQueue {
         System.out.println(strs.peek());
         System.out.println(strs.size());
     }
+
+    /**
+     * 结果：
+     * [a0, a1, a2, a3, a4, a5, a6, a7, a8, a9]
+     * 10
+     *
+     * a0
+     * 9
+     *
+     * a1
+     * 9
+     */
 }

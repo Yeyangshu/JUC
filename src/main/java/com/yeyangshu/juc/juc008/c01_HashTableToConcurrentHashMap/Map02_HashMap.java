@@ -1,19 +1,11 @@
-/**
- * Copyright (C), 2018-2020
- * FileName: Map02_HashMap
- * Author:   11077
- * Date:     2020/6/25 21:50
- * Description:
- * History:
- * <author>          <time>          <version>          <desc>
- * 作者姓名           修改时间           版本号              描述
- */
 package com.yeyangshu.juc.juc008.c01_HashTableToConcurrentHashMap;
 
 import java.util.HashMap;
 import java.util.UUID;
 
 /**
+ * HashMap
+ *
  * @author yeyangshu
  * @version 1.0
  * @date 2020/6/25 21:50
@@ -77,4 +69,10 @@ public class Map02_HashMap {
 
         System.out.println(m.size());
     }
+
+    /**
+     * 154
+     * 763943
+     * 速度快，没有锁，数据异常
+     */
 }

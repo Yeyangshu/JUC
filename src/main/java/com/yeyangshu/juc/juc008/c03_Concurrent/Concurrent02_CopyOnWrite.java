@@ -7,10 +7,12 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * 写时复制
- * 写加锁，读不加锁
+ * 当新增和删除元素时会创建一个新的数组，在新的数组中增加或者排除指定对象，最后用新增数组替换原来的数组。
+ * 读操作不加锁，写（增、删、改）操作加锁
  * 写效率低，适用于读多写少
- * CopyOnWriteArrayList
- * CopyOnWriteArraySet
+ * CopyOnWriteArrayList：并发版ArrayList
+ * CopyOnWriteArraySet：并发版Set
+ *
  * @author yeyangshu
  * @version 1.0
  * @date 2020/6/26 11:56
@@ -65,7 +67,7 @@ public class Concurrent02_CopyOnWrite {
      *     }
      *
      *     将引用指向新的数组
- *         final void setArray(Object[] a) {
+     *         final void setArray(Object[] a) {
      *         array = a;
      *     }
      */

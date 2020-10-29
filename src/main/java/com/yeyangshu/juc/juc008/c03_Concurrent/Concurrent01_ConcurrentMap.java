@@ -8,14 +8,20 @@ import java.util.concurrent.ConcurrentSkipListMap;
 import java.util.concurrent.CountDownLatch;
 
 /**
+ * ConcurrentHashMap：并发版HashMap，无序的
+ * ConcurrentSkipListMap：基于跳表的并发Map，有序的
+ *
  * @author yeyangshu
  * @version 1.0
  * @date 2020/6/26 11:23
  */
 public class Concurrent01_ConcurrentMap {
+
     public static void main(String[] args) {
-        Map<String, String> map = new ConcurrentHashMap<>();
-//        Map<String, String> map = new ConcurrentSkipListMap<>();//高并发并且排序
+        // 高并发，无序
+        // Map<String, String> map = new ConcurrentHashMap<>();
+        // 高并发并且排序
+        Map<String, String> map = new ConcurrentSkipListMap<>();
         Random r = new Random();
         Thread[] ths = new Thread[100];
         CountDownLatch latch = new CountDownLatch(ths.length);

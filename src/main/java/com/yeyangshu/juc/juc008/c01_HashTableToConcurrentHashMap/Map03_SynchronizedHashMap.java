@@ -6,6 +6,8 @@ import java.util.Map;
 import java.util.UUID;
 
 /**
+ * Collections.synchronizedMap
+ *
  * @author yeyangshu
  * @version 1.0
  * @date 2020/6/25 21:51
@@ -95,4 +97,11 @@ public class Map03_SynchronizedHashMap {
         end = System.currentTimeMillis();
         System.out.println(end - start);
     }
+
+    /**
+     * 346
+     * 1000000
+     * 32739
+     * 与HashTable在效率上区别不大
+     */
 }

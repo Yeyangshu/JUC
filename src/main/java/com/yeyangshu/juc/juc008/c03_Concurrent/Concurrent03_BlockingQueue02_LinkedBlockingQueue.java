@@ -6,8 +6,10 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 无界队列，一只添加到内存满
+ * LinkedBlockingQueue：阻塞队列(基于链表)
+ * 基于链表实现的阻塞队列，想比于不阻塞的ConcurrentLinkedQueue，它多了一个容量限制，如果不设置默认为int最大值。
  * 阻塞方法，put()、take()
+ *
  * @author yeyangshu
  * @version 1.0
  * @date 2020/6/27 10:10
@@ -17,23 +19,23 @@ public class Concurrent03_BlockingQueue02_LinkedBlockingQueue {
     static Random r = new Random();
 
     public static void main(String[] args) {
-         new Thread(() -> {
-             for (int i = 0; i < 100; i++) {
-                 try {
-                     // 添加元素，没有元素阻塞
-                     strings.put("a" + i);
-                     TimeUnit.MILLISECONDS.sleep(r.nextInt(1000));
-                 } catch (InterruptedException e) {
-                     e.printStackTrace();
-                 }
-             }
-         }, "p1").start();
+        new Thread(() -> {
+            for (int i = 0; i < 100; i++) {
+                try {
+                    // 添加元素，满了就会阻塞
+                    strings.put("a" + i);
+                    TimeUnit.MILLISECONDS.sleep(r.nextInt(1000));
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, "p1").start();
 
         for (int i = 0; i < 5; i++) {
             new Thread(() -> {
                 for (;;) {
                     try {
-                        // take取，如果空了，就会等待
+                        // take取，如果空了，就会阻塞
                         System.out.println(Thread.currentThread().getName() + " take - " + strings.take());
                     } catch (InterruptedException e) {
                         e.printStackTrace();

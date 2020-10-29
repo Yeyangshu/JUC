@@ -7,11 +7,15 @@ import java.util.concurrent.Delayed;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * DelayQueue：延时队列
+ * 按时间排序，等待时间短的优先执行
+ *
  * @author yeyangshu
  * @version 1.0
  * @date 2020/6/27 11:58
  */
 public class Concurrent03_BlockingQueue04_DelayQueue {
+
     static BlockingQueue<MyTask> tasks = new DelayQueue<>();
 
     static Random r = new Random();
@@ -65,8 +69,17 @@ public class Concurrent03_BlockingQueue04_DelayQueue {
 
         System.out.println(tasks);
 
-        for(int i=0; i<5; i++) {
+        for (int i = 0; i < 5; i++) {
             System.out.println(tasks.take());
         }
     }
+
+    /**
+     * [t5 1603885567116, t1 1603885567616, t3 1603885568116, t4 1603885569116, t2 1603885568616]
+     * t5 1603885567116
+     * t1 1603885567616
+     * t3 1603885568116
+     * t2 1603885568616
+     * t4 1603885569116
+     */
 }

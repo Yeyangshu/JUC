@@ -1,19 +1,11 @@
-/**
- * Copyright (C), 2018-2020
- * FileName: Map01_HashTable
- * Author:   11077
- * Date:     2020/6/22 23:42
- * Description:
- * History:
- * <author>          <time>          <version>          <desc>
- * 作者姓名           修改时间           版本号              描述
- */
 package com.yeyangshu.juc.juc008.c01_HashTableToConcurrentHashMap;
 
 import java.util.Hashtable;
 import java.util.UUID;
 
 /**
+ * HashTable
+ *
  * @author yeyangshu
  * @version 1.0
  * @date 2020/6/22 23:42
@@ -34,8 +26,16 @@ public class Map01_HashTable {
     }
 
     static class MyThread extends Thread {
+
+        /**
+         * 开始数量
+         */
         int start;
-        int gap = count/THREAD_COUNT;
+
+        /**
+         * 每个线程添加数量
+         */
+        int gap = count / THREAD_COUNT;
 
         public MyThread(int start) {
             this.start = start;
@@ -43,7 +43,7 @@ public class Map01_HashTable {
 
         @Override
         public void run() {
-            for(int i=start; i<start+gap; i++) {
+            for (int i = start; i < start + gap; i++) {
                 m.put(keys[i], values[i]);
             }
         }
@@ -51,20 +51,25 @@ public class Map01_HashTable {
 
     public static void main(String[] args) {
 
+        /**
+         * 开始时间
+         */
         long start = System.currentTimeMillis();
 
+        /**
+         * 线程数组
+         */
         Thread[] threads = new Thread[THREAD_COUNT];
 
-        for(int i=0; i<threads.length; i++) {
-            threads[i] =
-                    new MyThread(i * (count/THREAD_COUNT));
+        for (int i = 0; i < threads.length; i++) {
+            threads[i] = new MyThread(i * (count / THREAD_COUNT));
         }
 
-        for(Thread t : threads) {
+        for (Thread t : threads) {
             t.start();
         }
 
-        for(Thread t : threads) {
+        for (Thread t : threads) {
             try {
                 t.join();
             } catch (InterruptedException e) {
@@ -81,18 +86,18 @@ public class Map01_HashTable {
 
         start = System.currentTimeMillis();
         for (int i = 0; i < threads.length; i++) {
-            threads[i] = new Thread(()->{
+            threads[i] = new Thread(() -> {
                 for (int j = 0; j < 10000000; j++) {
                     m.get(keys[10]);
                 }
             });
         }
 
-        for(Thread t : threads) {
+        for (Thread t : threads) {
             t.start();
         }
 
-        for(Thread t : threads) {
+        for (Thread t : threads) {
             try {
                 t.join();
             } catch (InterruptedException e) {
@@ -103,4 +108,11 @@ public class Map01_HashTable {
         end = System.currentTimeMillis();
         System.out.println(end - start);
     }
+
+    /**
+     * 330
+     * 1000000
+     *
+     * 34996
+     */
 }
