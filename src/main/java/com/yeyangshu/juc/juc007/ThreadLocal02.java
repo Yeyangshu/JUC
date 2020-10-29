@@ -4,7 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * ThreadLocal
- * 
+ *
  * ThreadLocal提供了线程的局部变量，每个线程都可以通过 set() 和 get() 来对这个局部变量进行操作，但不会和其他线程的局部变量进行冲突，实现了线程的数据隔离。
  * 用途：Spring声明式事务，保证同一个connection
  *
