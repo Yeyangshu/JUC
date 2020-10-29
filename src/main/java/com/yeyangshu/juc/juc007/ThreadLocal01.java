@@ -1,19 +1,10 @@
-/**
- * Copyright (C), 2018-2020
- * FileName: ThreadLocal01
- * Author:   11077
- * Date:     2020/6/14 10:44
- * Description:
- * History:
- * <author>          <time>          <version>          <desc>
- * 作者姓名           修改时间           版本号              描述
- */
 package com.yeyangshu.juc.juc007;
 
 import java.util.concurrent.TimeUnit;
 
 /**
  * 两个线程访问一个对象，对象被更改
+ *
  * @author yeyangshu
  * @version 1.0
  * @date 2020/6/14 10:44
@@ -42,6 +33,8 @@ public class ThreadLocal01 {
     }
 
     /**
+     * 结果：
+     *
      * 李四
      */
 }

@@ -1,20 +1,13 @@
-/**
- * Copyright (C), 2018-2020
- * FileName: ThreadLocal01
- * Author:   11077
- * Date:     2020/6/14 10:44
- * Description:
- * History:
- * <author>          <time>          <version>          <desc>
- * 作者姓名           修改时间           版本号              描述
- */
 package com.yeyangshu.juc.juc007;
 
 import java.util.concurrent.TimeUnit;
 
 /**
- * 使用ThreadLocal
+ * ThreadLocal
+ * 
+ * ThreadLocal提供了线程的局部变量，每个线程都可以通过 set() 和 get() 来对这个局部变量进行操作，但不会和其他线程的局部变量进行冲突，实现了线程的数据隔离。
  * 用途：Spring声明式事务，保证同一个connection
+ *
  * @author yeyangshu
  * @version 1.0
  * @date 2020/6/14 10:50
@@ -30,7 +23,7 @@ public class ThreadLocal02 {
                 e.printStackTrace();
             }
             System.out.println(tl.get());
-        }).start();
+        }, "t2").start();
 
         new Thread(() -> {
             try {
@@ -39,7 +32,7 @@ public class ThreadLocal02 {
                 e.printStackTrace();
             }
             tl.set(new Person());
-        }).start();
+        }, "t1").start();
     }
 
     static class Person {
@@ -47,39 +40,43 @@ public class ThreadLocal02 {
     }
 
     /**
+     * 结果：
      * null
-     * set()，当前线程的map
-     *     public void set(T value) {
-     *         Thread t = Thread.currentThread();
-     *         ThreadLocalMap c01_HashTableToConcurrentHashMap = getMap(t);
-     *         if (c01_HashTableToConcurrentHashMap != null) {
-     *             c01_HashTableToConcurrentHashMap.set(this, value);
-     *         } else {
-     *             createMap(t, value);
-     *         }
-     *     }
+     * t1线程向tl中的map set一个对象，t2取自己线程里的map去取
      *
-     *     Thread类
-     *     ThreadLocal.ThreadLocalMap threadLocals = null;
-     *     ThreadLocalMap getMap(Thread t) {
-     *         return t.threadLocals;
-     *     }
+     * ThreadLocal源码
+     * set()，设置value到当前线程的map
+     *
+     * public void set(T value) {
+     *     // 拿到当前线程
+     *     Thread t = Thread.currentThread();
+     *     // 拿到ThreadLocalMap，map中的key是this(当前ThreadLocal对象)，value是设置的值
+     *     ThreadLocalMap map = getMap(t);
+     *     if (map != null)
+     *         map.set(this, value);
+     *     else
+     *         createMap(t, value);
+     * }
+     *
+     * Thread类
+     * ThreadLocal.ThreadLocalMap threadLocals = null;
+     * ThreadLocalMap getMap(Thread t) {
+     *     return t.threadLocals;
+     * }
      *
      * get()，当前线程的map
-     *     public T get() {
-     *         Thread t = Thread.currentThread();
-     *         ThreadLocalMap c01_HashTableToConcurrentHashMap = getMap(t);
-     *         if (c01_HashTableToConcurrentHashMap != null) {
-     *             ThreadLocalMap.Entry e = c01_HashTableToConcurrentHashMap.getEntry(this);
-     *             if (e != null) {
-     *                 @SuppressWarnings("unchecked")
-     *                 T result = (T)e.value;
-     *                 return result;
-     *             }
+     * public T get() {
+     *     Thread t = Thread.currentThread();
+     *     ThreadLocalMap map = getMap(t);
+     *     if (map != null) {
+     *         ThreadLocalMap.Entry e = map.getEntry(this);
+     *         if (e != null) {
+     *             @SuppressWarnings("unchecked")
+     *             T result = (T)e.value;
+     *             return result;
      *         }
-     *         return setInitialValue();
      *     }
+     *     return setInitialValue();
+     * }
      */
 }
-
-

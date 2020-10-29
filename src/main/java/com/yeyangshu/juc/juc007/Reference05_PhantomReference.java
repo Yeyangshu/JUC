@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * 虚引用，jvm使用
+ *
  * @author yeyangshu
  * @version 1.0
  * @date 2020/6/21 18:57
@@ -48,4 +49,19 @@ public class Reference05_PhantomReference {
             e.printStackTrace();
         }
     }
+
+    /**
+     * null
+     * null
+     * null
+     * null
+     * null
+     * null
+     * null
+     * null
+     * null
+     * finalize
+     * null
+     * null
+     */
 }

@@ -1,7 +1,7 @@
 ThreadLocal
 
-ThreadLocal01：测试
-ThreadLocal02：源码
+ThreadLocal01：两个线程访问一个对象，对象被更改
+ThreadLocal02：ThreadLocal的使用和源码
 Reference01_Finalize：重写finalize，便于观察
 Reference02_NormalReference：普通引用，强引用
 Reference03_SoftReference：软引用，做缓存用
