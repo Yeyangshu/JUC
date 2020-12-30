@@ -8,7 +8,8 @@ import java.util.concurrent.TimeUnit;
 /**
  * LinkedBlockingQueue：阻塞队列(基于链表)
  * 基于链表实现的阻塞队列，想比于不阻塞的ConcurrentLinkedQueue，它多了一个容量限制，如果不设置默认为int最大值。
- * 阻塞方法，put()、take()
+ * 阻塞方法，put()、take()，put添加，如果满了线程阻塞，take取值，如果空了线程阻塞。
+ * 实现了生产者和消费者
  *
  * @author yeyangshu
  * @version 1.0
